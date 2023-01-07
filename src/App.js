@@ -1,21 +1,21 @@
-import './App.css';
+import React, {useState} from 'react';
+import Product from "./components/Product";
+import data from "./models/data.json";
+import ProductList from "./components/ProductList";
 
 function App() {
+  const  [product, setProducts] = useState(data);
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://imusicstore.netlify.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-         View Example Mediastore App
-        </a>
-      </header>
+    <div>
+      <ProductList>
+        {product.map((item)=> (<Product
+        key={item.trackId}
+        product={item}/>
+
+         ))}
+      
+      </ProductList>
+      
     </div>
   );
 }
