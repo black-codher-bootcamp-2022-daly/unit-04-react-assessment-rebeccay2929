@@ -1,26 +1,28 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-function Product(props) {
+function  Product ({ items }) {
+  const {
+    artistName,
+    trackName,
+    artworkUrl100,
+    trackPrice,
+    kind,
+    shortDescription,
+  } = items;
   return (
     <div
-      style={{
-        backgroundColor: "pink",
-        marginBottom: "4px",
-        fontFamily: "monospace",
-      }}
-    >
-      <h2> {props.product.artistName}</h2>
-      <h2> {props.product.trackName}</h2>
-      <img src={props.product.artworkUrl100} />
-      <p> {props.product.trackPrice}</p>
-      <p> {props.product.kind}</p>
-      <p> {props.product.shortDescription}</p>
-      <button> Add to Basket
-      </button>
-
+    classnName="Product-details">
+    
+      <h2> {artistName}</h2>
+      <h2> {trackName}</h2>
+      <img src={artworkUrl100} />
+      <p> {trackPrice}</p>
+      <p> {kind}</p>
+      <p> {shortDescription}</p>
+      
     </div>
   );
-}
+};
 
 export default Product;
+
