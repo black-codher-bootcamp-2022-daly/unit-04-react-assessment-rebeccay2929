@@ -1,28 +1,22 @@
 import React from "react";
 
-function  Product ({ items }) {
-  const {
-    artistName,
-    trackName,
-    artworkUrl100,
-    trackPrice,
-    kind,
-    shortDescription,
-  } = items;
-  return (
-    <div
-    classnName="Product-details">
-    
-      <h2> {artistName}</h2>
-      <h2> {trackName}</h2>
-      <img src={artworkUrl100} />
-      <p> {trackPrice}</p>
-      <p> {kind}</p>
-      <p> {shortDescription}</p>
-      
+function Product({item}) {
+    const {
+        trackId,
+        kind,
+        trackName,
+        artworkUrl100
+    } = item;
+return (
+    <div className="Product-box">
+        <img src={artworkUrl100} alt={trackName}/>
+        <div className="Product-list">
+            <h1> {kind}</h1>
+            <h2> {trackName}</h2>
+
+        </div>
     </div>
-  );
-};
 
+);
+}
 export default Product;
-
