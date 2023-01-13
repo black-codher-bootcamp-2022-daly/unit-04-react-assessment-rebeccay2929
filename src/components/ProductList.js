@@ -5,7 +5,7 @@ import React from "react";
 function ProductList(props) {
     return (
         <div className="main-page">
-            <h1 className="title"> Suggested for you</h1> {""};
+            <h1 className="title"> Suggested for you</h1> {""}
             {!props.items || props.items.length === 0? (
                 <div className="empty"> No items found.</div>):
                 (
@@ -17,6 +17,9 @@ function ProductList(props) {
                             kind= {item.kind}
                             name ={item.trackName}
                             thumbnail={item.artworkUrl100}
+                            artistName={item.artistName}
+                            price={item.trackPrice}
+                            description={item.shortDescription}
                             />
                         </div>
                     ))

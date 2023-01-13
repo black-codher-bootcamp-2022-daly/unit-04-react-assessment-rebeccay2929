@@ -5,14 +5,21 @@ function Product({item}) {
         trackId,
         kind,
         trackName,
-        artworkUrl100
+        artworkUrl100,
+        artistName,
+        trackPrice,
+        shortDescription,
     } = item;
 return (
     <div className="Product-box">
         <img src={artworkUrl100} alt={trackName}/>
         <div className="Product-list">
-            <h1> {kind}</h1>
             <h2> {trackName}</h2>
+            <h3>{artistName}</h3>
+            <h3> £{trackPrice}</h3>
+            <h3> {kind}</h3>
+            <h3>{shortDescription}</h3>
+            
 
         </div>
     </div>
