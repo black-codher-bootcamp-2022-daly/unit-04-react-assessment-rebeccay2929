@@ -1,3 +1,4 @@
+import "./styles/App.css"
 import React from "react";
 import data from "./models/data.json";
 import Header from "./components/Header"
@@ -14,6 +15,16 @@ function App(){
   // const [basket, setBasket]= useState([]);
   // const [counter, setCounter]= useState(0);
 
+
+  // async function Search(value)  {
+  //   const url = 'https://www.googleapis.com/books/vI/volumes?g=${value}&filter=paid-ebooks&print-type=books&projection=lite';
+    
+  //   const results = await fetch(url).them((res)=> res.json());
+  //   if(!results.error){
+  //     setProducts(results.items)
+  //   }
+  //     }
+
   async function search (value) {
     const url = `https://itunes.apple.com/search?term=${value}&limit=30&explicit=no`;
 
@@ -25,8 +36,9 @@ function App(){
   
   return(
     <Router>
-      <div className="App"> 
+      <div> 
       <h1 className="Store"> iTunes Media Store</h1>
+
       <Header/>
       <Routes>
         <Route path ="/" element ={<Home/>}></Route>
@@ -37,11 +49,16 @@ function App(){
       </div>
     </Router>
   );
-  
+
   function Home() {
     return (
       <>
       <Search phrase={phrase} setPhrase={setPhrase} search={search}></Search>
+      {/* <Search
+          phrase={phrase}
+          setPhrase={setPhrase}
+          handleSubmit={search}
+          /> */}
       <ProductList
       items={products}
       />

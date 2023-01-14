@@ -2,9 +2,10 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 function Header(props){
+    // style= {list-style-type: none;}
     return(
-<div className="Nav-div">
-    <ul className="Nav-list">
+<div className="Header">
+    <ul  className="Nav-list no-bullets" >
         <li>
             <Link to="/" id="homepage-link" className="List"> 
             Home</Link>

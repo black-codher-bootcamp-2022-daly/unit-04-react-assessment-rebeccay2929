@@ -18,8 +18,7 @@ return (
             <h3>{artistName}</h3>
             <h3> £{trackPrice}</h3>
             <h3> {kind}</h3>
-            <h3>{shortDescription}</h3>
-            
+            <h3>{shortDescription}</h3>            
 
         </div>
     </div>
