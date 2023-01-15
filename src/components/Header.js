@@ -19,7 +19,7 @@ function Header(props){
 
         <li>
             <Link to="/basket" id="basket-link" className="List">
-                Basket
+                Basket: {props.itemCount} items
             </Link>
         </li>
     </ul>

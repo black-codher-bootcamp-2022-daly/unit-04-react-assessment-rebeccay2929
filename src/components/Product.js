@@ -1,28 +1,38 @@
 import React from "react";
 
-function Product({item}) {
-    const {
-        trackId,
-        kind,
-        trackName,
-        artworkUrl100,
-        artistName,
-        trackPrice,
-        shortDescription,
-    } = item;
-return (
+function Product({ item, addToBasket, removeFromBasket }) {
+  const {
+    trackId,
+    kind,
+    trackName,
+    artworkUrl100,
+    artistName,
+    trackPrice,
+    shortDescription,
+    inBasket,
+  } = item;
+
+  return (
     <div className="Product-box">
-        <img src={artworkUrl100} alt={trackName}/>
-        <div className="Product-list">
-            <h2> {trackName}</h2>
-            <h3>{artistName}</h3>
-            <h3> £{trackPrice}</h3>
-            <h3> {kind}</h3>
-            <h3>{shortDescription}</h3>            
+      <img src={artworkUrl100} alt={trackName} />
+      <div className="Product-list">
+        <h2> {trackName}</h2>
+        <h3>{artistName}</h3>
+        <h3> £{trackPrice}</h3>
+        <h3> {kind}</h3>
+        <h3>{shortDescription}</h3>
+      </div>
 
-        </div>
+      <div>
+        {inBasket !== true ? (
+          <button onClick={() => addToBasket(trackId)}> Add item </button>
+        ) : (
+          <button onClick={() => removeFromBasket(trackId)}>
+            Remove item 
+          </button>
+        )}
+      </div>
     </div>
-
-);
+  );
 }
 export default Product;

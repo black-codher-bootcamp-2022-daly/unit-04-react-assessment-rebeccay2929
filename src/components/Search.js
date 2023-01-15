@@ -15,12 +15,11 @@ const Search = (props) => {
         <em> {phrase && "Searched item: " + phrase}</em>
       </p>
       <input
-        className="Text-input"
         type="text"
         value={phrase}
         onChange={handleChange}
       />
-      <button className="Button-submit" type="submit" onClick={onSubmit}>
+      <button type="submit" onClick={onSubmit}>
         Search
       </button>
     </form>
