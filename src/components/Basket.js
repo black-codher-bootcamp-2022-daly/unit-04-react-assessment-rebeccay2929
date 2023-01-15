@@ -7,7 +7,7 @@ const Basket =({basket, ...props}) => {
     return (
         <div>
             {!basket || basket.length === 0 ?(
-                <div className="empty-basket"> Basket is empty </div>
+                <div className="empty-basket"> Empty Basket </div>
             ) :(
                 basket.map((item) => (
                     <div className="product" key={item.trackId}>

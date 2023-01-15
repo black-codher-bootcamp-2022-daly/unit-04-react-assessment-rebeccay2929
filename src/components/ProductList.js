@@ -7,7 +7,7 @@ function ProductList(props) {
         <div>
             <h1 className="title"> Suggested for you</h1> 
             {!props.items || props.items.length === 0 ? (
-                <div className="empty"> No items found.</div>):
+                <div className="empty"> Sorry, no items in basket...</div>):
                 (
                     props.items.map((item) => (
                         <div className="product-details" key={item.trackId}>

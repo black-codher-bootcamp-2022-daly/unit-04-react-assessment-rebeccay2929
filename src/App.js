@@ -16,7 +16,7 @@ import BasketCount from "./components/BasketCount";
 
 function App() {
   const [products, setProducts]= useState(data);
-  const [phrase, setPhrase] = useState("");
+  const [term, setTerm] = useState("");
   const [basket, setBasket]= useState([]);
   const [count, setCounter]= useState(0);
   const [setTotal] = useState(basket);
@@ -95,7 +95,7 @@ function removeFromBasket(trackId) {
   function Home() {
     return (
       <>
-      <Search phrase={phrase} setPhrase={setPhrase} search={search}></Search>
+      <Search term={term} setTerm={setTerm} search={search}></Search>
       <ProductList
       items={products}
       addToBasket={addToBasket}

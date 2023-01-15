@@ -1,22 +1,22 @@
 import react from "react";
 
 const Search = (props) => {
-  const { phrase, setPhrase, search } = props;
+  const { term, setTerm, search } = props;
   function handleChange(e) {
-    setPhrase(e.target.value);
+    setTerm(e.target.value);
   }
   function onSubmit(event) {
     event.preventDefault();
-    search(phrase);
+    search(term);
   }
   return (
     <form className="Search">
       <p style={{ color: "red" }} className="typed">
-        <em> {phrase && "Searched item: " + phrase}</em>
+        <em> {term && "Searched item: " + term}</em>
       </p>
       <input
         type="text"
-        value={phrase}
+        value={term}
         onChange={handleChange}
       />
       <button type="submit" onClick={onSubmit}>
