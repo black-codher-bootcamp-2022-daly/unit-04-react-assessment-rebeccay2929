@@ -1,13 +1,13 @@
+
 import React from "react";
 import Product from "./Product";
 
 const Basket =({basket, ...props}) => {
     const {removeFromBasket} = props;
-    console.log("show me basket")
     return (
         <div>
             {!basket || basket.length === 0 ?(
-                <div className="empty-basket"> Empty Basket </div>
+                <div className="empty-basket"> Sorry, no items in basket.. </div>
             ) :(
                 basket.map((item) => (
                     <div className="product" key={item.trackId}>
@@ -29,6 +29,8 @@ const Basket =({basket, ...props}) => {
         </div>
     );
 };
+
+
 
 
 export default Basket;

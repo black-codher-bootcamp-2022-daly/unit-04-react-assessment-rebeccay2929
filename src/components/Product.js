@@ -11,7 +11,7 @@ function Product({ item, addToBasket, removeFromBasket }) {
     shortDescription,
     inBasket,
   } = item;
-
+  
   return (
     <div className="Product-box">
       <img src={artworkUrl100} alt={trackName} />
@@ -28,7 +28,7 @@ function Product({ item, addToBasket, removeFromBasket }) {
           <button onClick={() => addToBasket(trackId)}> Add item </button>
         ) : (
           <button onClick={() => removeFromBasket(trackId)}>
-            Remove item 
+            Remove item{" "}
           </button>
         )}
       </div>

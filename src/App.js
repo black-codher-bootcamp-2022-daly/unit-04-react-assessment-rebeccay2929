@@ -4,6 +4,7 @@ import data from "./models/data.json";
 import Header from "./components/Header"
 import ProductList from "./components/ProductList";
 import { useState } from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Search from "./components/Search";
 import About from "./pages/About";
@@ -12,14 +13,12 @@ import BasketTotal from "./components/BasketTotal";
 import BasketCount from "./components/BasketCount";
 
 
-
-
 function App() {
   const [products, setProducts]= useState(data);
   const [term, setTerm] = useState("");
   const [basket, setBasket]= useState([]);
-  const [count, setCounter]= useState(0);
-  const [setTotal] = useState(basket);
+  const [count, setCount]= useState(0);
+  const [total, setTotal] = useState(0);
 
 
   // async function Search(value)  {
@@ -31,37 +30,40 @@ function App() {
   //   }
   //     }
 
-const basketTotal = basket.reduce(
-  (increase, add) => increase + add.trackPrice, 0
-);
 
-function addToBasket(trackId) {
-  products.map((item) => {
-  if (item.trackId === trackId) {
-    products.inBasket = true;
-    setCounter(count + 1);
-    setBasket((prev) => [...prev, products])
+// useEffect(() => {
+//   document.title = basket.length > 0 ? `Media Store (${basket.length})` : "Media Store"
+// }, [basket])
 
-  }
-  return item;
-});
-setTotal(basketTotal);
-}
 
-function removeFromBasket(trackId) {
-  const removeProduct =[];
-  basket.filter((item) => {
-    if (item.trackId !== trackId) {
-      removeProduct.push(item);
-    } else {
-      item.inBasket = !item.inBasket;
+const addToBasket = (id) => {
+  setBasket(basket.concat (products.filter((item) => products.trackId == id)));
+setProducts ([
+  ...products.map((item) => {
+    if (item.trackId == id) {
+      item.inBasket = true;
+      setTotal(total + item.trackPrice)
     }
-      return item;
-    });
+    return item;
+  })
+])
+setCount(count +1)
 
-    setBasket(removeProduct);
-    setCounter(count -1);
-}
+};
+
+const removeFromBasket = (id) => {
+  setBasket(basket.filter (products.filter((item) => products.trackId !== id)));
+setProducts ([
+  ...products.map((item) => {
+    if (item.trackId == id) {
+      item.inBasket = false;
+      setTotal(total - item.trackPrice)
+    }
+    return item;
+  })
+])
+setCount(count - 1)
+};
 
 
   async function search(value) {
@@ -116,16 +118,14 @@ function removeFromBasket(trackId) {
           basket={basket}
           removeFromBasket={removeFromBasket}
           basketCount={count}
-          basketTotal={basketTotal}
+          // basketTotal={basketTotal}
           />
         }
         <div>
-          Total: <BasketTotal basketTotal={basketTotal}/>
+          {/* Total: <BasketTotal basketTotal={basketTotal}/> */}
         </div>
       </div>
     )
   }
 }
 export default App;
-
-
