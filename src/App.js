@@ -38,8 +38,6 @@ function App() {
 
 const addToBasket = (id) => {
   const basketTemp = basket.concat (products.filter((item) => item.trackId == id))
-  console.log (basketTemp)
-  console.log(basket)
   setBasket (basketTemp);
 setProducts ([
   ...products.map((item) => {
@@ -56,7 +54,7 @@ setCount(count +1)
 };
 
 const removeFromBasket = (id) => {
-  setBasket(basket.concat (products.filter((item) => products.trackId !== id)));
+  setBasket (basket.filter((item) => item.trackId !== id));
 setProducts ([
   ...products.map((item) => {
     if (item.trackId == id) {
