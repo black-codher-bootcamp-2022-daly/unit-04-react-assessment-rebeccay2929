@@ -42,6 +42,7 @@ setProducts ([
   ...products.map((item) => {
     if (item.trackId == id) {
       item.inBasket = true;
+      console.log("products added")
       setTotal(total + item.trackPrice)
     }
     return item;
@@ -52,11 +53,12 @@ setCount(count +1)
 };
 
 const removeFromBasket = (id) => {
-  setBasket(basket.filter (products.filter((item) => products.trackId !== id)));
+  setBasket(basket.concat (products.filter((item) => products.trackId !== id)));
 setProducts ([
   ...products.map((item) => {
     if (item.trackId == id) {
       item.inBasket = false;
+      console.log("products removed")
       setTotal(total - item.trackPrice)
     }
     return item;
