@@ -37,7 +37,10 @@ function App() {
 
 
 const addToBasket = (id) => {
-  setBasket(basket.concat (products.filter((item) => products.trackId == id)));
+  const basketTemp = basket.concat (products.filter((item) => item.trackId == id))
+  console.log (basketTemp)
+  console.log(basket)
+  setBasket (basketTemp);
 setProducts ([
   ...products.map((item) => {
     if (item.trackId == id) {
