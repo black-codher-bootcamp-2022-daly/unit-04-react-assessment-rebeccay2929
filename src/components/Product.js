@@ -25,9 +25,9 @@ function Product({ item, addToBasket, removeFromBasket }) {
 
       <div>
         {inBasket !== true ? (
-          <button onClick={() => addToBasket(trackId)}> Add item </button>
+          <button className = "btn" onClick={() => addToBasket(trackId)}> Add item </button>
         ) : (
-          <button onClick={() => removeFromBasket(trackId)}>
+          <button className = "btn" onClick={() => removeFromBasket(trackId)}>
             Remove item{" "}
           </button>
         )}

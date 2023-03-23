@@ -14,13 +14,12 @@ const Search = (props) => {
       <p style={{ color: "red" }} className="typed">
         <em> {term && "Searched item: " + term}</em>
       </p>
-      <input
+      <input className="typed-text"
         type="text"
         value={term}
         onChange={handleChange}
       />
-      <button type="submit" onClick={onSubmit}>
-        Search
+      <button className="submit" type="submit" onClick={onSubmit}> Search
       </button>
     </form>
   );

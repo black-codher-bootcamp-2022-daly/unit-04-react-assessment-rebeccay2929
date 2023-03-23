@@ -82,7 +82,7 @@ setCount(count - 1)
   
   return(
     <Router>
-      <div> 
+      <div className="page"> 
       <h1 className="Store"> iTunes Media Store</h1>
 
       <Header itemCount={count}/>
