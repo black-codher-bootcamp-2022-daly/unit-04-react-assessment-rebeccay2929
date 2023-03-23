@@ -5,9 +5,9 @@ const Search = (props) => {
   function handleChange(e) {
     setTerm(e.target.value);
   }
-  function onSubmit(event) {
+  async function onSubmit(event) {
     event.preventDefault();
-    search(term);
+   await search(term);
   }
   return (
     <form className="Search">
