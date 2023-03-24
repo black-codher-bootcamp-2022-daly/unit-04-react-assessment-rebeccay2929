@@ -1,4 +1,3 @@
-import react from "react";
 
 const Search = (props) => {
   const { term, setTerm, search } = props;
